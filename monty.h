@@ -51,10 +51,6 @@ void check_ifInteger(char *number);
 void free_stack(stack_t *stack);
 void pint(stack_t **stack, unsigned int line_number);
 void pop(stack_t **stack, unsigned int line_number);
-<<<<<<< HEAD
-=======
-void swap(stack_t **stack, unsigned int line_number);
->>>>>>> 14e5b73329ae139d85cd0844bd3ca20bc41a292a
 void nop(stack_t **stack, unsigned int line_number);
 /*-------------------------------PROTOTYPES-------------------------------*/
 #endif
