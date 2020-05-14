@@ -33,7 +33,7 @@ void (*check_instruction(char *command))(stack_t**, unsigned int)
  * @command: given command
  * @stack: stack
  */
-void execute_instruction(char *command, stack_t **stack)
+void execute_instruction(char *command, stack_t **stack, FILE *script)
 {
 	char *ins = strtok(command, " \n\t\r");
 	char *arg = strtok(NULL, " \n\t\r");
@@ -41,12 +41,16 @@ void execute_instruction(char *command, stack_t **stack)
 	int number = 0;
 
 	nb_line++;
-	if (*command == '\n')
+	if (*command == '\n' || !ins)
 		return;
 	if (!strncmp(ins, "push", 4))
 	{
 		if (!arg)
 		{
+			if (*stack)
+				free_stack(*stack);
+			fclose(script);
+			free(command);
 			fprintf(stderr, "L%d: usage: push integer\n", nb_line);
 			exit(EXIT_FAILURE);
 		}
@@ -59,6 +63,10 @@ void execute_instruction(char *command, stack_t **stack)
 
 	if (!function)
 	{
+		if (*stack)
+				free_stack(*stack);
+		free(command);
+		fclose(script);
 		fprintf(stderr, "L%d: unknown instruction %s\n", nb_line, ins);
 		exit(EXIT_FAILURE);
 	}
