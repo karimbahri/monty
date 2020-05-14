@@ -68,7 +68,7 @@ void execute_instruction(char *command, stack_t **stack, FILE *script)
 		fprintf(stderr, "L%d: unknown instruction %s\n", nb_line, ins);
 		exit(EXIT_FAILURE);
 	}
-	function(stack, 2);
+	function(stack, nb_line);
 }
 /**
  * check_ifInteger - check if string is integer
