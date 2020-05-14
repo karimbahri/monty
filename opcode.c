@@ -1,6 +1,8 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
 #include "monty.h"
 EXTERN;
-
 /**
  * check_instruction - check for instruction
  * @command: given command
@@ -11,6 +13,7 @@ void (*check_instruction(char *command))(stack_t**, unsigned int)
 	instruction_t instructions[] = {
 		{"pall", pall},
 		{"pint", pint},
+		{"pop", pop},
 		{NULL, NULL}
 	};
 	int i = 0;
@@ -23,12 +26,10 @@ void (*check_instruction(char *command))(stack_t**, unsigned int)
 	}
 	return (NULL);
 }
-
-
-
 /**
  * execute_instruction - execute instruction
  * @command: given command
+ *@script: the file open
  * @stack: stack
  */
 void execute_instruction(char *command, stack_t **stack, FILE *script)
@@ -58,7 +59,6 @@ void execute_instruction(char *command, stack_t **stack, FILE *script)
 		return;
 	}
 	function = check_instruction(ins);
-
 	if (!function)
 	{
 		if (*stack)
@@ -68,10 +68,8 @@ void execute_instruction(char *command, stack_t **stack, FILE *script)
 		fprintf(stderr, "L%d: unknown instruction %s\n", nb_line, ins);
 		exit(EXIT_FAILURE);
 	}
-
-	function(stack, 2);
+	function(stack, nb_line);
 }
-
 /**
  * check_ifInteger - check if string is integer
  * @number: string to check
@@ -91,8 +89,6 @@ void check_ifInteger(char *number)
 		if (!number[i] || number[i] == '\n')
 			return;
 	}
-
-
 	fprintf(stderr, "L%d: usage: push integer\n", nb_line);
 	exit(EXIT_FAILURE);
 }
