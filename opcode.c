@@ -17,6 +17,7 @@ void (*check_instruction(char *command))(stack_t**, unsigned int)
 		{NULL, NULL}
 	};
 	int i = 0;
+
 	while (instructions[i].opcode)
 	{
 		if (!strcmp(instructions[i].opcode, command))
@@ -28,6 +29,7 @@ void (*check_instruction(char *command))(stack_t**, unsigned int)
 /**
  * execute_instruction - execute instruction
  * @command: given command
+ *@script: the file open
  * @stack: stack
  */
 void execute_instruction(char *command, stack_t **stack, FILE *script)
@@ -36,6 +38,7 @@ void execute_instruction(char *command, stack_t **stack, FILE *script)
 	char *arg = strtok(NULL, " \n\t\r");
 	void (*function)(stack_t**, unsigned int);
 	int number = 0;
+
 	nb_line++;
 	if (*command == '\n' || !ins)
 		return;
@@ -59,7 +62,7 @@ void execute_instruction(char *command, stack_t **stack, FILE *script)
 	if (!function)
 	{
 		if (*stack)
-				free_stack(*stack);
+			free_stack(*stack);
 		free(command);
 		fclose(script);
 		fprintf(stderr, "L%d: unknown instruction %s\n", nb_line, ins);
@@ -74,6 +77,7 @@ void execute_instruction(char *command, stack_t **stack, FILE *script)
 void check_ifInteger(char *number)
 {
 	int i = 0;
+
 	if ((number[0] >= '0' && number[0] <= '9') || number[0] == '-')
 	{
 		while (number[i] && number[i] != '\n')
