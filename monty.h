@@ -1,5 +1,9 @@
 #ifndef __MONTY__
 #define __MONTY__
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
 /*--------------------------------STRUCTS--------------------------------*/
 extern int nb_line;
 
@@ -45,5 +49,6 @@ void pall(stack_t **stack, unsigned int line_number);
 void (*check_instruction(char *command))(stack_t**, unsigned int);
 void check_ifInteger(char *number);
 void free_stack(stack_t *stack);
+void pint(stack_t **stack, unsigned int line_number);
 /*-------------------------------PROTOTYPES-------------------------------*/
 #endif
