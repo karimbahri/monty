@@ -47,3 +47,20 @@ void pall(stack_t **stack, unsigned int line_number)
 		top = top->next;
 	}
 }
+
+/**
+ * free_stack - free stack
+ * @stack: stack to free
+ */
+void free_stack(stack_t *stack)
+{
+	if (stack)
+	{
+		while (stack->next)
+		{
+			stack = stack->next;
+			free(stack->prev);
+		}
+		free(stack);
+	}
+}

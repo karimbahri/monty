@@ -35,7 +35,8 @@ int main(int argc, char *argv[])
 		free(instruction);
 		instruction = NULL;
 	}
-
+	free(instruction);
+	free_stack(stack);
 	fclose(script);
 
 	return (EXIT_SUCCESS);
