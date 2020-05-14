@@ -1,6 +1,3 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
 #include "monty.h"
 EXTERN;
 
@@ -13,6 +10,7 @@ void (*check_instruction(char *command))(stack_t**, unsigned int)
 {
 	instruction_t instructions[] = {
 		{"pall", pall},
+		{"pint", pint},
 		{NULL, NULL}
 	};
 	int i = 0;
