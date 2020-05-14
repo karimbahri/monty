@@ -24,6 +24,7 @@ int num;
 	}
 
 }
+<<<<<<< HEAD
 /**
  * nop - The opcode nop doesn’t do anything.
  *
@@ -37,3 +38,5 @@ void nop(stack_t **stack, unsigned int line_number)
 	(void)stack;
 	(void)line_number;
 }
+=======
+>>>>>>> 61a03f115be0a43188fd41d717c2e99c6d29c6d2

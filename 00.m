@@ -1,8 +1,11 @@
 
-push 0
-  pis
-push 4
-push 5 
-pint
+push 5
+nop
+push 10
+nop -10
+pall
+	push -14
+			   pint
+			nop
 
    
