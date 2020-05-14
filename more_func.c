@@ -24,3 +24,19 @@ int num;
 	}
 
 }
+<<<<<<< HEAD
+/**
+ * nop - The opcode nop doesn’t do anything.
+ *
+ * @stack: first element of a double linked list.
+ * @line_number: lenght of the list.
+ *
+ */
+
+void nop(stack_t **stack, unsigned int line_number)
+{
+	(void)stack;
+	(void)line_number;
+}
+=======
+>>>>>>> 61a03f115be0a43188fd41d717c2e99c6d29c6d2
