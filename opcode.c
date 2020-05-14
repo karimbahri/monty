@@ -76,17 +76,17 @@ void execute_instruction(char *command, stack_t **stack, FILE *script)
  */
 void check_ifInteger(char *number)
 {
-	int i = 0;
+	int i = 1;
 
 	if ((number[0] >= '0' && number[0] <= '9') || number[0] == '-')
 	{
-		while (number[i] && number[i] != '\n')
+		while (number[i])
 		{
 			if (!(number[i] >= '0' && number[i] <= '9'))
 				break;
 			i++;
 		}
-		if (!number[i] || number[i] == '\n')
+		if (!number[i])
 			return;
 	}
 	fprintf(stderr, "L%d: usage: push integer\n", nb_line);
