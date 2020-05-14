@@ -1,4 +1,5 @@
 #include "monty.h"
+
 /**
  *pint- prints the value at the top of the stack
  *@stack: stack to print
@@ -25,17 +26,23 @@ void pint(stack_t **stack, unsigned int line_number)
  */
 void pop(stack_t **stack, unsigned int line_number)
 {
-	stack_t *tmp = *stack;
+	stack_t *tmp;
+
 		if (*stack == NULL)
 	{
 		fprintf(stderr, "L%d: can't pop an empty stack\n", line_number);
 		exit(EXIT_FAILURE);
 	}
 
-	if (!tmp->next)
+	if (!(*stack)->next)
+	{
+		free_stack(*stack);
 		*stack = NULL;
+		return;
+	}
 	else
 	{
+		tmp = *stack;
 		*stack = tmp->next;
 		tmp->next->prev = NULL;
 	}

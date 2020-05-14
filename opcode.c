@@ -3,6 +3,7 @@
 #include <string.h>
 #include "monty.h"
 EXTERN;
+
 /**
  * check_instruction - check for instruction
  * @command: given command
@@ -16,6 +17,8 @@ void (*check_instruction(char *command))(stack_t**, unsigned int)
 		{"pop", pop},
 		{"swap", swap},
 		{"nop", nop},
+		{"add", add},
+		{"sub", sub},
 		{NULL, NULL}
 	};
 	int i = 0;
