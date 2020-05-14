@@ -15,6 +15,10 @@ void (*check_instruction(char *command))(stack_t**, unsigned int)
 		{"pint", pint},
 		{"pop", pop},
 		{"nop", nop},
+<<<<<<< HEAD
+=======
+		{"swap", swap},
+>>>>>>> 14e5b73329ae139d85cd0844bd3ca20bc41a292a
 		{NULL, NULL}
 	};
 	int i = 0;
