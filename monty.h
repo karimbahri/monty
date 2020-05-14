@@ -43,12 +43,13 @@ typedef struct instruction_s
 
 
 /*-------------------------------PROTOTYPES-------------------------------*/
-void execute_instruction(char *command, stack_t **stack);
+void execute_instruction(char *command, stack_t **stack, FILE *script);
 stack_t *push_stack(stack_t **stack, int n);
 void pall(stack_t **stack, unsigned int line_number);
 void (*check_instruction(char *command))(stack_t**, unsigned int);
 void check_ifInteger(char *number);
 void free_stack(stack_t *stack);
 void pint(stack_t **stack, unsigned int line_number);
+void pop(stack_t **stack, unsigned int line_number);
 /*-------------------------------PROTOTYPES-------------------------------*/
 #endif
