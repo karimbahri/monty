@@ -31,7 +31,7 @@ int main(int argc, char *argv[])
 	while (getline(&instruction, &del, script) != -1)
 	{
 		/*printf("%s\n", instruction);*/
-		execute_instruction(instruction, &stack);
+		execute_instruction(instruction, &stack, script);
 		free(instruction);
 		instruction = NULL;
 	}
