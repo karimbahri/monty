@@ -17,13 +17,14 @@ stack_t *tmp = *stack;
 	{
 		*stack = (*stack)->next;
 		(*stack)->n += tmp->n;
-		free(tmp);
+		pop(&tmp, 0);
 	}
 
 	else
 	{
 		fprintf(stderr, "L%u: can't add, stack too short\n", line_number);
 		free_stack(*stack);
+		exit(EXIT_FAILURE);
 	}
 }
 
@@ -43,12 +44,13 @@ void sub(stack_t **stack, unsigned int line_number)
 		*stack = (*stack)->next;
 		(*stack)->n -= tmp->n;
 		(*stack)->prev = NULL;
-		free(tmp);
+		pop(&tmp, 0);
 	}
 
 	else
 	{
 		fprintf(stderr, "L%u: can't sub, stack too short\n", line_number);
 		free_stack(*stack);
+		exit(EXIT_FAILURE);
 	}
 }
