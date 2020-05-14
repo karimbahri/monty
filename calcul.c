@@ -17,6 +17,7 @@ stack_t *tmp = *stack;
 	{
 		*stack = (*stack)->next;
 		(*stack)->n += tmp->n;
+        (*stack)->prev = NULL;
 		pop(&tmp, 0);
 	}
 
