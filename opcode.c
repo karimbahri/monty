@@ -14,6 +14,7 @@ void (*check_instruction(char *command))(stack_t**, unsigned int)
 		{"pall", pall},
 		{"pint", pint},
 		{"pop", pop},
+		{"nop", nop},
 		{NULL, NULL}
 	};
 	int i = 0;
