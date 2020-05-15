@@ -65,3 +65,61 @@ void free_stack(stack_t *stack)
 		free(stack);
 	}
 }
+
+/**
+ * _mul - multiply the top two elements of the stack..
+ * @stack: pointer to stack.
+ * @line_number: Data for make a push.
+ */
+
+void _mul(stack_t **stack, unsigned int line_number)
+{
+stack_t *tmp = *stack;
+
+	if (*stack && (*stack)->next)
+	{
+		*stack = (*stack)->next;
+		(*stack)->n *= tmp->n;
+		(*stack)->prev = NULL;
+		pop(&tmp, 0);
+	}
+
+	else
+	{
+		fprintf(stderr, "L%u: can't mul, stack too short\n", line_number);
+		free_stack(*stack);
+		exit(EXIT_FAILURE);
+	}
+}
+
+/**
+ * _div - divide the top element of the stack with the second
+ * @stack: pointer to stack.
+ * @line_number: Data for make a push.
+ */
+
+void _div(stack_t **stack, unsigned int line_number)
+{
+stack_t *tmp = *stack;
+
+	if (*stack && (*stack)->next)
+	{
+		if (!(*stack)->n)
+		{
+			fprintf(stderr, "L%d: can't div, stack too short\n", line_number);
+			free_stack(*stack);
+			exit(EXIT_FAILURE);
+		}
+		*stack = (*stack)->next;
+		(*stack)->n /= tmp->n;
+		(*stack)->prev = NULL;
+		pop(&tmp, 0);
+	}
+
+	else
+	{
+		fprintf(stderr, "L%u: can't mul, stack too short\n", line_number);
+		free_stack(*stack);
+		exit(EXIT_FAILURE);
+	}
+}

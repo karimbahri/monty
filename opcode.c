@@ -19,6 +19,9 @@ void (*check_instruction(char *command))(stack_t**, unsigned int)
 		{"nop", nop},
 		{"add", add},
 		{"sub", sub},
+		{"div", _div},
+		{"mul", _mul},
+		{"mod", _mod},
 		{NULL, NULL}
 	};
 	int i = 0;
@@ -45,7 +48,7 @@ void execute_instruction(char *command, stack_t **stack, FILE *script)
 	int number = 0;
 
 	nb_line++;
-	if (*command == '\n' || !ins)
+	if (*command == '\n' || !ins || *ins == '#')
 		return;
 	if (!strcmp(ins, "push"))
 	{
