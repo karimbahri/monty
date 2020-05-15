@@ -47,7 +47,7 @@ void execute_instruction(char *command, stack_t **stack, FILE *script)
 	nb_line++;
 	if (*command == '\n' || !ins)
 		return;
-	if (!strncmp(ins, "push", 4))
+	if (!strcmp(ins, "push"))
 	{
 		if (!arg)
 		{
