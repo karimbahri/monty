@@ -68,9 +68,9 @@ void execute_instruction(char *command, stack_t **stack, FILE *script)
 	{
 		if (*stack)
 			free_stack(*stack);
-		free(command);
 		fclose(script);
 		fprintf(stderr, "L%d: unknown instruction %s\n", nb_line, ins);
+		free(command);
 		exit(EXIT_FAILURE);
 	}
 	function(stack, nb_line);
