@@ -106,7 +106,7 @@ stack_t *tmp = *stack;
 	{
 		if (!(*stack)->n)
 		{
-			fprintf(stderr, "L%d: can't div, stack too short\n", line_number);
+			fprintf(stderr, "L%d: division by zero\n", line_number);
 			free_stack(*stack);
 			exit(EXIT_FAILURE);
 		}
@@ -118,7 +118,7 @@ stack_t *tmp = *stack;
 
 	else
 	{
-		fprintf(stderr, "L%u: can't mul, stack too short\n", line_number);
+		fprintf(stderr, "L%d: can't div, stack too short\n", line_number);
 		free_stack(*stack);
 		exit(EXIT_FAILURE);
 	}
