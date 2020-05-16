@@ -23,7 +23,6 @@ void (*check_instruction(char *command))(stack_t**, unsigned int)
 		{"mul", mul},
 		{"mod", mod},
 		{"pchar", pchar},
-		{"pstr", pstr},
 		{NULL, NULL}
 	};
 	int i = 0;
