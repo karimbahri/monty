@@ -33,3 +33,21 @@ stack_t *tmp = *stack;
 	}
 
 }
+/**
+ *rotl -prints the string starting at the top of the stack
+ *
+ *@stack: pointer of struct
+ *@line_number: cont the number of ech line
+ *
+ */
+void rotl(stack_t **stack, unsigned int line_number)
+{
+stack_t *tmp = *stack;
+
+		while (tmp->next)
+		{
+			swap(&tmp, line_number);
+			tmp = tmp->next;
+		}
+
+}
