@@ -48,3 +48,33 @@ void pop(stack_t **stack, unsigned int line_number)
 	}
 	free(tmp);
 }
+/**
+ *pchar -prints the char at the top of the stack.
+ *
+ *@stack: pointer of struct
+ *@line_number: cont the number of ech line
+ *
+ */
+void pchar(stack_t **stack, unsigned int line_number)
+{
+
+
+		if (*stack == NULL)
+	{
+		fprintf(stderr, "L%d: can't pchar an empty stack\n", line_number);
+		exit(EXIT_FAILURE);
+	}
+
+	else if ((*stack)->n > 127 && (*stack)->n > 0)
+	{
+		fprintf(stderr, "L%u: can't pchar, value out of range\n", line_number);
+		free_stack(*stack);
+		exit(EXIT_FAILURE);
+	}
+	else
+	{
+		putchar((*stack)->n);
+		putchar('\n');
+	}
+}
+

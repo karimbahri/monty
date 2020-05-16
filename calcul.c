@@ -18,7 +18,7 @@ stack_t *tmp = *stack;
 		*stack = (*stack)->next;
 		(*stack)->n += tmp->n;
 		(*stack)->prev = NULL;
-		pop(&tmp, 0);
+		pop(&tmp, line_number);
 	}
 
 	else
@@ -45,7 +45,7 @@ void sub(stack_t **stack, unsigned int line_number)
 		*stack = (*stack)->next;
 		(*stack)->n -= tmp->n;
 		(*stack)->prev = NULL;
-		pop(&tmp, 0);
+		pop(&tmp, line_number);
 	}
 
 	else
@@ -57,12 +57,12 @@ void sub(stack_t **stack, unsigned int line_number)
 }
 
 /**
- * _mod - divide the top element of the stack with the second
+ * mod - divide the top element of the stack with the second
  * @stack: pointer to stack.
  * @line_number: Data for make a push.
  */
 
-void _mod(stack_t **stack, unsigned int line_number)
+void mod(stack_t **stack, unsigned int line_number)
 {
 stack_t *tmp = *stack;
 
@@ -77,7 +77,7 @@ stack_t *tmp = *stack;
 		*stack = (*stack)->next;
 		(*stack)->n %= tmp->n;
 		(*stack)->prev = NULL;
-		pop(&tmp, 0);
+		pop(&tmp, line_number);
 	}
 
 	else

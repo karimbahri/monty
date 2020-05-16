@@ -20,8 +20,9 @@ void (*check_instruction(char *command))(stack_t**, unsigned int)
 		{"add", add},
 		{"sub", sub},
 		{"div", _div},
-		{"mul", _mul},
-		{"mod", _mod},
+		{"mul", mul},
+		{"mod", mod},
+		{"pchar", pchar},
 		{NULL, NULL}
 	};
 	int i = 0;

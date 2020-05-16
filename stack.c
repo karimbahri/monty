@@ -67,12 +67,12 @@ void free_stack(stack_t *stack)
 }
 
 /**
- * _mul - multiply the top two elements of the stack..
+ * mul - multiply the top two elements of the stack..
  * @stack: pointer to stack.
  * @line_number: Data for make a push.
  */
 
-void _mul(stack_t **stack, unsigned int line_number)
+void mul(stack_t **stack, unsigned int line_number)
 {
 stack_t *tmp = *stack;
 
@@ -81,7 +81,7 @@ stack_t *tmp = *stack;
 		*stack = (*stack)->next;
 		(*stack)->n *= tmp->n;
 		(*stack)->prev = NULL;
-		pop(&tmp, 0);
+		pop(&tmp, line_number);
 	}
 
 	else
@@ -113,7 +113,7 @@ stack_t *tmp = *stack;
 		*stack = (*stack)->next;
 		(*stack)->n /= tmp->n;
 		(*stack)->prev = NULL;
-		pop(&tmp, 0);
+		pop(&tmp, line_number);
 	}
 
 	else
