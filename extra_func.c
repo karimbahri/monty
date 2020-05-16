@@ -44,10 +44,13 @@ void rotl(stack_t **stack, unsigned int line_number)
 {
 stack_t *tmp = *stack;
 
-		while (tmp->next)
-		{
-			swap(&tmp, line_number);
-			tmp = tmp->next;
-		}
+	if (!stack || !*stack)
+		return;
+
+	while (tmp->next)
+	{
+		swap(&tmp, line_number);
+		tmp = tmp->next;
+	}
 
 }
