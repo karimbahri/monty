@@ -67,7 +67,7 @@ void rotr(stack_t **stack, unsigned int line_number)
 stack_t *last = *stack, *tmp = NULL;
 (void)line_number;
 
-	if (!(*stack)->next || !*stack)
+	if (!stack || !*stack)
 		return;
 
 	while (last->next)
