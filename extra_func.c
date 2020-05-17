@@ -34,7 +34,7 @@ stack_t *tmp = *stack;
 
 }
 /**
- *rotl -prints the string starting at the top of the stack
+ *rotl -rotates the stack to the top.
  *
  *@stack: pointer of struct
  *@line_number: cont the number of ech line
@@ -52,5 +52,30 @@ stack_t *tmp = *stack;
 		swap(&tmp, line_number);
 		tmp = tmp->next;
 	}
+
+}
+/**
+ *rotr -rotates the stack to the bottom.
+ *
+ *@stack: pointer of struct
+ *@line_number: cont the number of ech line
+ *
+ */
+void rotr(stack_t **stack, unsigned int line_number)
+{
+stack_t *last = *stack, *tmp = NULL;
+(void)line_number;
+
+	if (!stack || !*stack)
+		return;
+
+	while (last->next)
+	{
+		tmp = last;
+		last = last->next;
+	}
+	tmp->next = NULL;
+	last->next = *stack;
+	*stack = last;
 
 }
