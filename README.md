@@ -11,22 +11,22 @@
 \
 ##		FEATURES
 \
-*		`push`
-*		`pall`
-*		`pint`
-*		`pop`
-*		`swap`
-*		`add`
-*		`nop`
-*		`sub`
-*		`div`
-*		`mul`
-*		`mod`
-*		`#`
-*		`pchar`
-*		`pstr`
-*		`rotl`
-*		`rotr`
+ 		`push`
+ 		`pall`
+ 		`pint`
+ 		`pop`
+ 		`swap`
+ 		`add`
+ 		`nop`
+ 		`sub`
+ 		`div`
+ 		`mul`
+ 		`mod`
+ 		`#`
+ 		`pchar`
+ 		`pstr`
+ 		`rotl`
+ 		`rotr`
 
 
 *   What do LIFO and FIFO mean
