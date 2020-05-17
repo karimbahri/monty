@@ -54,6 +54,7 @@ stack_t *tmp = *stack;
 	}
 
 }
+
 /**
  *rotr -rotates the stack to the bottom.
  *
@@ -66,16 +67,18 @@ void rotr(stack_t **stack, unsigned int line_number)
 stack_t *last = *stack, *tmp = NULL;
 (void)line_number;
 
-	if (!stack || !*stack)
+	if (!(*stack)->next || !*stack)
 		return;
 
 	while (last->next)
 	{
 		tmp = last;
 		last = last->next;
+
 	}
 	tmp->next = NULL;
+	last->prev = NULL;
 	last->next = *stack;
+	(*stack)->prev = last;
 	*stack = last;
-
 }
